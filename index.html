@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Terra-Analog · ProQuark</title>
+    <meta
+      name="description"
+      content="Find Earth's twin for any place on Mars or the Moon using NASA elevation data."
+    />
+    <meta name="theme-color" content="#0B0D10" />
+    <meta property="og:title" content="Terra-Analog · ProQuark" />
+    <meta
+      property="og:description"
+      content="Find Earth's twin for any place on Mars or the Moon using NASA elevation data."
+    />
+    <meta property="og:type" content="website" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230B0D10'/%3E%3Crect x='9' y='9' width='14' height='14' fill='%23FFFFFF'/%3E%3C/svg%3E"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <div class="deck-shell">
+      <header class="top-bar">
+        <div class="bar-inner">
+          <span class="brand-name">Terra-Analog</span>
+          <span id="slide-counter" class="slide-counter" aria-live="polite">1 / 6</span>
+        </div>
+      </header>
+
+      <main id="deck-viewport" class="deck-viewport">
+        <div id="slides-track" class="slides-track">
+          <!-- Slide 1: Opening -->
+          <section
+            id="slide-1"
+            class="slide slide-opening"
+            aria-label="Slide 1: Terra-Analog"
+          >
+            <canvas id="accretion-bg-canvas" class="accretion-canvas" aria-hidden="true"></canvas>
+            <div class="opening-scrim" aria-hidden="true"></div>
+
+            <div class="slide-inner">
+              <div class="opening-content">
+                <h1 class="hero-title">Terra-Analog</h1>
+                <p class="lead-text">
+                  Find Earth's twin for any place on Mars or the Moon.
+                </p>
+                <p class="meta-text">ProQuark · NASA Space Apps Challenge</p>
+                <div class="cta-row">
+                  <button
+                    type="button"
+                    id="start-briefing-btn"
+                    class="btn-solid-white"
+                  >
+                    Start briefing
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Slide 2: Problem -->
+          <section
+            id="slide-2"
+            class="slide"
+            aria-label="Slide 2: Problem"
+            aria-hidden="true"
+            inert
+          >
+            <div class="slide-inner">
+              <div class="stack-lg">
+                <div class="stack-md">
+                  <h2 class="slide-title">
+                    Finding an Earth analog is slow, manual work.
+                  </h2>
+                  <p class="lead-text">
+                    Teams compare maps, papers, and elevation files by hand; the
+                    process cannot be repeated consistently and candidates are not
+                    scored against the same parameters.
+                  </p>
+                </div>
+
+                <div class="columns-three">
+                  <div class="surface-column">
+                    <h3 class="column-title">Rover testing</h3>
+                    <p class="body-text">
+                      Wheels, suspension, and autonomy require validated slopes
+                      and surface roughness before launch.
+                    </p>
+                  </div>
+
+                  <div class="surface-column">
+                    <h3 class="column-title">Astronaut training</h3>
+                    <p class="body-text">
+                      Crews rehearse EVA traverses and navigation on terrain that
+                      matches the landing zone.
+                    </p>
+                  </div>
+
+                  <div class="surface-column">
+                    <h3 class="column-title">Base planning</h3>
+                    <p class="body-text">
+                      Habitat siting depends on local relief, slopes, and surface
+                      characteristics.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Slide 3: Solution -->
+          <section
+            id="slide-3"
+            class="slide"
+            aria-label="Slide 3: Solution"
+            aria-hidden="true"
+            inert
+          >
+            <div class="slide-inner">
+              <div class="split-layout">
+                <div class="split-copy stack-md">
+                  <h2 class="slide-title">
+                    Pick a place. See its closest twin.
+                  </h2>
+
+                  <ol class="steps-list">
+                    <li class="step-item">
+                      <span class="step-number" aria-hidden="true">1</span>
+                      <p class="body-text">
+                        Select a site on the world map to look for an Earth
+                        analog.
+                      </p>
+                    </li>
+                    <li class="step-item">
+                      <span class="step-number" aria-hidden="true">2</span>
+                      <p class="body-text">
+                        Measurable terrain features are computed directly from
+                        NASA elevation data.
+                      </p>
+                    </li>
+                    <li class="step-item">
+                      <span class="step-number" aria-hidden="true">3</span>
+                      <p class="body-text">
+                        Review scored matches and compare both locations in the
+                        dual map.
+                      </p>
+                    </li>
+                  </ol>
+                </div>
+
+                <div class="split-visual">
+                  <figure class="screen-slot screen-slot-hero" data-screen="world-map.png">
+                    <img
+                      src="assets/screens/world-map.png"
+                      alt="Terra-Analog world map for selecting from 49 Earth analog sites"
+                      class="screen-img"
+                    />
+                    <figcaption class="screen-placeholder" hidden>
+                      Add screenshot: world-map.png
+                    </figcaption>
+                  </figure>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Slide 4: NASA Data and Architecture -->
+          <section
+            id="slide-4"
+            class="slide"
+            aria-label="Slide 4: NASA data and architecture"
+            aria-hidden="true"
+            inert
+          >
+            <div class="slide-inner">
+              <div class="stack-lg">
+                <div class="split-layout">
+                  <div class="split-copy stack-md">
+                    <h2 class="slide-title">
+                      Real NASA elevation data, scored the same way every time.
+                    </h2>
+
+                    <div id="data-sources-list" class="sources-grid"></div>
+                  </div>
+
+                  <div class="split-visual visual-pair-4">
+                    <figure class="screen-slot screen-slot-wizard" data-screen="wizard.png">
+                      <img
+                        src="assets/screens/wizard.png"
+                        alt="Site ingestion wizard for planetary coordinates, radius, and telemetry"
+                        class="screen-img"
+                      />
+                      <figcaption class="screen-placeholder" hidden>
+                        Add screenshot: wizard.png
+                      </figcaption>
+                    </figure>
+
+                    <figure class="screen-slot screen-slot-params" data-screen="parameters.png">
+                      <img
+                        src="assets/screens/parameters.png"
+                        alt="Seven-parameter terrain and climate suitability breakdown"
+                        class="screen-img"
+                      />
+                      <figcaption class="screen-placeholder" hidden>
+                        Add screenshot: parameters.png
+                      </figcaption>
+                    </figure>
+                  </div>
+                </div>
+
+                <div class="flow-row" aria-label="Processing pipeline">
+                  <span class="flow-node">Data source</span>
+                  <span class="flow-arrow" aria-hidden="true">→</span>
+                  <span class="flow-node">Feature extraction</span>
+                  <span class="flow-arrow" aria-hidden="true">→</span>
+                  <span class="flow-node">Score</span>
+                  <span class="flow-arrow" aria-hidden="true">→</span>
+                  <span class="flow-node">Dossier</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Slide 5: Features -->
+          <section
+            id="slide-5"
+            class="slide"
+            aria-label="Slide 5: Features"
+            aria-hidden="true"
+            inert
+          >
+            <div class="slide-inner">
+              <div class="stack-md">
+                <h2 class="slide-title">
+                  Compare terrain side by side, then export the evidence.
+                </h2>
+
+                <div id="primary-features-grid" class="features-grid">
+                  <article class="feature-item" data-feature="dualMap">
+                    <figure class="screen-slot screen-slot-feature" data-screen="dual-map.png">
+                      <img
+                        src="assets/screens/dual-map.png"
+                        alt="Dual map view comparing Jezero Crater Mars with Salda Lake Turkey and elevation profile"
+                        class="screen-img"
+                      />
+                      <figcaption class="screen-placeholder" hidden>
+                        Add screenshot: dual-map.png
+                      </figcaption>
+                    </figure>
+                    <h3 class="feature-title">Dual map &amp; elevation profile</h3>
+                    <p class="body-text">
+                      Pan linked maps together and inspect A–A' cross-sections
+                      with elevation RMSE and correlation.
+                    </p>
+                  </article>
+
+                  <article class="feature-item" data-feature="terrain3d">
+                    <figure class="screen-slot screen-slot-feature" data-screen="3d-terrain.png">
+                      <img
+                        src="assets/screens/3d-terrain.png"
+                        alt="Interactive 3D terrain mesh comparison between Valles Marineris and Axel Heiberg Island"
+                        class="screen-img"
+                      />
+                      <figcaption class="screen-placeholder" hidden>
+                        Add screenshot: 3d-terrain.png
+                      </figcaption>
+                    </figure>
+                    <h3 class="feature-title">3D terrain</h3>
+                    <p class="body-text">
+                      Examine slope geometry and surface roughness in a
+                      camera-linked three-dimensional view.
+                    </p>
+                  </article>
+                </div>
+
+                <div id="secondary-features-row" class="secondary-features-row">
+                  <div class="secondary-feature-item" data-feature="similarityMatrix">
+                    <figure class="screen-slot screen-slot-matrix" data-screen="matrix.png">
+                      <img
+                        src="assets/screens/matrix.png"
+                        alt="Planetary target by Earth analog similarity matrix across seven parameters"
+                        class="screen-img"
+                      />
+                      <figcaption class="screen-placeholder" hidden>
+                        Add screenshot: matrix.png
+                      </figcaption>
+                    </figure>
+                    <div class="secondary-feature-copy">
+                      <h3 class="secondary-title">Similarity matrix</h3>
+                      <p class="secondary-text">
+                        Compare Mars and Moon targets against candidate Earth
+                        sites in one table.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="secondary-feature-item" data-feature="pdfDossier">
+                    <figure class="screen-slot screen-slot-dossier" data-screen="dossier.png">
+                      <img
+                        src="assets/screens/dossier.png"
+                        alt="Six-step technical mission memorandum and suitability dossier builder"
+                        class="screen-img"
+                      />
+                      <figcaption class="screen-placeholder" hidden>
+                        Add screenshot: dossier.png
+                      </figcaption>
+                    </figure>
+                    <div class="secondary-feature-copy">
+                      <h3 class="secondary-title">Mission dossier</h3>
+                      <p class="secondary-text">
+                        Build printable six-section suitability memos with
+                        metrics and field logistics.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Slide 6: Impact and CTA -->
+          <section
+            id="slide-6"
+            class="slide"
+            aria-label="Slide 6: Launch Terra-Analog"
+            aria-hidden="true"
+            inert
+          >
+            <div class="slide-inner">
+              <div class="split-layout">
+                <div class="split-copy stack-md">
+                  <h2 class="slide-title">
+                    Any mission team can find a training ground in minutes.
+                  </h2>
+                  <p class="lead-text">
+                    Built on open NASA data, Terra-Analog lowers preparation
+                    costs and points teams directly to real sites on Earth.
+                  </p>
+
+                  <a
+                    id="launch-app-cta"
+                    href="https://your-live-app.vercel.app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn-solid-white btn-full"
+                  >
+                    Launch the app
+                  </a>
+
+                  <p class="meta-text">
+                    Team ProQuark · NASA Space Apps Challenge
+                  </p>
+                </div>
+
+                <div class="split-visual">
+                  <figure class="screen-slot screen-slot-hero" data-screen="landing.png">
+                    <img
+                      src="assets/screens/landing.png"
+                      alt="Terra-Analog live application entry screen"
+                      class="screen-img"
+                    />
+                    <figcaption class="screen-placeholder" hidden>
+                      Add screenshot: landing.png
+                    </figcaption>
+                  </figure>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+
+      <nav class="bottom-bar" aria-label="Slide navigation">
+        <div class="bar-inner">
+          <button
+            type="button"
+            id="prev-slide-btn"
+            class="nav-text-btn"
+            aria-label="Previous slide"
+            disabled
+          >
+            Prev
+          </button>
+
+          <div id="slide-dots" class="slide-dots">
+            <button type="button" class="slide-dot is-active" data-slide="0" aria-label="Slide 1 of 6" aria-current="step"></button>
+            <button type="button" class="slide-dot" data-slide="1" aria-label="Slide 2 of 6"></button>
+            <button type="button" class="slide-dot" data-slide="2" aria-label="Slide 3 of 6"></button>
+            <button type="button" class="slide-dot" data-slide="3" aria-label="Slide 4 of 6"></button>
+            <button type="button" class="slide-dot" data-slide="4" aria-label="Slide 5 of 6"></button>
+            <button type="button" class="slide-dot" data-slide="5" aria-label="Slide 6 of 6"></button>
+          </div>
+
+          <button
+            type="button"
+            id="next-slide-btn"
+            class="nav-text-btn"
+            aria-label="Next slide"
+          >
+            Next
+          </button>
+        </div>
+      </nav>
+    </div>
+  </body>
+</html>
