@@ -184,111 +184,54 @@
             inert
           >
             <div class="slide-inner">
-              <div class="stack-lg slide-4-shell">
-                <div class="split-layout slide-4-split">
+              <div class="stack-lg">
+                <div class="split-layout">
                   <div class="split-copy stack-md">
-                    <div class="stack-sm">
-                      <p class="section-kicker">03 · DATA &amp; SCORING ENGINE</p>
-                      <h2 class="slide-title">
-                        Real NASA elevation data, scored the same way every time.
-                      </h2>
-                      <p class="lead-text slide-4-lead">
-                        Every candidate site is sampled over a configurable
-                        radius and benchmarked against the target landing zone
-                        across seven measurable terrain and climate parameters.
-                      </p>
-                    </div>
+                    <h2 class="slide-title">
+                      Real NASA elevation data, scored the same way every time.
+                    </h2>
+                    <p class="lead-text">
+                      Configure target coordinates and sampling radius to pull
+                      orbital and Earth elevation data, then evaluate each analog
+                      site across seven terrain and climate parameters.
+                    </p>
 
-                    <div id="data-sources-list" class="sources-grid" aria-label="Elevation data sources"></div>
-
-                    <div class="method-pillars">
-                      <div class="method-pillar">
-                        <span class="pillar-step">01 · Ingest &amp; configure</span>
-                        <p class="pillar-text">
-                          Lock planetary coordinates, sampling radius (km), and
-                          optional crew field telemetry overrides.
-                        </p>
-                      </div>
-                      <div class="method-pillar">
-                        <span class="pillar-step">02 · 7-parameter parity</span>
-                        <p class="pillar-text">
-                          Quantify slope distribution, relief, TRI roughness,
-                          basin morphology, thermal envelope, lithology, and
-                          aridity.
-                        </p>
-                      </div>
-                    </div>
+                    <div id="data-sources-list" class="sources-grid"></div>
                   </div>
 
                   <div class="split-visual visual-pair-4">
-                    <div class="visual-card">
-                      <div class="visual-card-header">
-                        <span class="visual-badge">STEP 1 · INGESTION</span>
-                        <span class="visual-caption">Site &amp; telemetry wizard</span>
-                      </div>
-                      <figure class="screen-slot screen-slot-wizard" data-screen="wizard.png">
-                        <img
-                          src="assets/screens/wizard.png"
-                          alt="Site ingestion wizard for planetary coordinates, radius, and telemetry"
-                          class="screen-img"
-                        />
-                        <figcaption class="screen-placeholder" hidden>
-                          Add screenshot: wizard.png
-                        </figcaption>
-                      </figure>
-                    </div>
+                    <figure class="screen-slot screen-slot-wizard" data-screen="wizard.png">
+                      <img
+                        src="assets/screens/wizard.png"
+                        alt="Site ingestion wizard for planetary coordinates, radius, and telemetry"
+                        class="screen-img"
+                      />
+                      <figcaption class="screen-placeholder" hidden>
+                        Add screenshot: wizard.png
+                      </figcaption>
+                    </figure>
 
-                    <div class="visual-card">
-                      <div class="visual-card-header">
-                        <span class="visual-badge">STEP 2 · EVALUATION</span>
-                        <span class="visual-caption">7-parameter suitability score</span>
-                      </div>
-                      <figure class="screen-slot screen-slot-params" data-screen="parameters.png">
-                        <img
-                          src="assets/screens/parameters.png"
-                          alt="Seven-parameter terrain and climate suitability breakdown"
-                          class="screen-img"
-                        />
-                        <figcaption class="screen-placeholder" hidden>
-                          Add screenshot: parameters.png
-                        </figcaption>
-                      </figure>
-                    </div>
+                    <figure class="screen-slot screen-slot-params" data-screen="parameters.png">
+                      <img
+                        src="assets/screens/parameters.png"
+                        alt="Seven-parameter terrain and climate suitability breakdown"
+                        class="screen-img"
+                      />
+                      <figcaption class="screen-placeholder" hidden>
+                        Add screenshot: parameters.png
+                      </figcaption>
+                    </figure>
                   </div>
                 </div>
 
                 <div class="flow-row" aria-label="Processing pipeline">
-                  <div class="flow-node">
-                    <span class="flow-index">01</span>
-                    <div class="flow-copy">
-                      <span class="flow-title">Orbital &amp; Earth DEMs</span>
-                      <span class="flow-sub">MOLA · LOLA · AWS Terrain</span>
-                    </div>
-                  </div>
+                  <span class="flow-node">Data source</span>
                   <span class="flow-arrow" aria-hidden="true">→</span>
-                  <div class="flow-node">
-                    <span class="flow-index">02</span>
-                    <div class="flow-copy">
-                      <span class="flow-title">Feature extraction</span>
-                      <span class="flow-sub">Radius DEM &amp; telemetry</span>
-                    </div>
-                  </div>
+                  <span class="flow-node">Feature extraction</span>
                   <span class="flow-arrow" aria-hidden="true">→</span>
-                  <div class="flow-node">
-                    <span class="flow-index">03</span>
-                    <div class="flow-copy">
-                      <span class="flow-title">7-parameter score</span>
-                      <span class="flow-sub">Weighted terrain &amp; climate parity</span>
-                    </div>
-                  </div>
+                  <span class="flow-node">Score</span>
                   <span class="flow-arrow" aria-hidden="true">→</span>
-                  <div class="flow-node">
-                    <span class="flow-index">04</span>
-                    <div class="flow-copy">
-                      <span class="flow-title">Mission dossier</span>
-                      <span class="flow-sub">Ranked analogs &amp; field brief</span>
-                    </div>
-                  </div>
+                  <span class="flow-node">Dossier</span>
                 </div>
               </div>
             </div>
