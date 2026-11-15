@@ -184,18 +184,14 @@
             inert
           >
             <div class="slide-inner">
-              <div class="stack-lg">
-                <div class="split-layout">
-                  <div class="split-copy stack-md">
-                    <h2 class="slide-title">
-                      Real NASA elevation data, scored the same way every time.
-                    </h2>
+              <div class="stack-md">
+                <h2 class="slide-title-compact">
+                  Real NASA elevation data, scored the same way every time.
+                </h2>
 
-                    <div id="data-sources-list" class="sources-grid"></div>
-                  </div>
-
-                  <div class="split-visual visual-pair-4">
-                    <figure class="screen-slot screen-slot-wizard" data-screen="wizard.png">
+                <div class="slide-4-new-grid">
+                  <div class="slide-4-col-left">
+                    <figure class="slide-4-fig" data-screen="wizard.png">
                       <img
                         src="assets/screens/wizard.png"
                         alt="Site ingestion wizard for planetary coordinates, radius, and telemetry"
@@ -205,8 +201,10 @@
                         Add screenshot: wizard.png
                       </figcaption>
                     </figure>
+                  </div>
 
-                    <figure class="screen-slot screen-slot-params" data-screen="parameters.png">
+                  <div class="slide-4-col-right">
+                    <figure class="slide-4-fig" data-screen="parameters.png">
                       <img
                         src="assets/screens/parameters.png"
                         alt="Seven-parameter terrain and climate suitability breakdown"
@@ -219,6 +217,8 @@
                   </div>
                 </div>
 
+                <div id="data-sources-list" class="sources-grid-three-col"></div>
+
                 <div class="flow-row" aria-label="Processing pipeline">
                   <span class="flow-node">Data source</span>
                   <span class="flow-arrow" aria-hidden="true">→</span>
@@ -230,6 +230,7 @@
                 </div>
               </div>
             </div>
+
           </section>
 
           <!-- Slide 5: Features -->
@@ -242,13 +243,13 @@
           >
             <div class="slide-inner">
               <div class="stack-md">
-                <h2 class="slide-title">
+                <h2 class="slide-title-features">
                   Compare terrain side by side, then export the evidence.
                 </h2>
 
-                <div id="primary-features-grid" class="features-grid">
+                <div class="features-grid-2x2">
                   <article class="feature-item" data-feature="dualMap">
-                    <figure class="screen-slot screen-slot-feature" data-screen="dual-map.png">
+                    <figure class="slide-5-fig" data-screen="dual-map.png">
                       <img
                         src="assets/screens/dual-map.png"
                         alt="Dual map view comparing Jezero Crater Mars with Salda Lake Turkey and elevation profile"
@@ -266,7 +267,7 @@
                   </article>
 
                   <article class="feature-item" data-feature="terrain3d">
-                    <figure class="screen-slot screen-slot-feature" data-screen="3d-terrain.png">
+                    <figure class="slide-5-fig" data-screen="3d-terrain.png">
                       <img
                         src="assets/screens/3d-terrain.png"
                         alt="Interactive 3D terrain mesh comparison between Valles Marineris and Axel Heiberg Island"
@@ -282,11 +283,9 @@
                       camera-linked three-dimensional view.
                     </p>
                   </article>
-                </div>
 
-                <div id="secondary-features-row" class="secondary-features-row">
-                  <div class="secondary-feature-item" data-feature="similarityMatrix">
-                    <figure class="screen-slot screen-slot-matrix" data-screen="matrix.png">
+                  <article class="feature-item" data-feature="similarityMatrix">
+                    <figure class="slide-5-fig" data-screen="matrix.png">
                       <img
                         src="assets/screens/matrix.png"
                         alt="Planetary target by Earth analog similarity matrix across seven parameters"
@@ -296,17 +295,15 @@
                         Add screenshot: matrix.png
                       </figcaption>
                     </figure>
-                    <div class="secondary-feature-copy">
-                      <h3 class="secondary-title">Similarity matrix</h3>
-                      <p class="secondary-text">
-                        Compare Mars and Moon targets against candidate Earth
-                        sites in one table.
-                      </p>
-                    </div>
-                  </div>
+                    <h3 class="feature-title">Similarity matrix</h3>
+                    <p class="body-text">
+                      Compare Mars and Moon targets against candidate Earth
+                      sites in one table.
+                    </p>
+                  </article>
 
-                  <div class="secondary-feature-item" data-feature="pdfDossier">
-                    <figure class="screen-slot screen-slot-dossier" data-screen="dossier.png">
+                  <article class="feature-item" data-feature="pdfDossier">
+                    <figure class="slide-5-fig slide-5-fig-tall" data-screen="dossier.png">
                       <img
                         src="assets/screens/dossier.png"
                         alt="Six-step technical mission memorandum and suitability dossier builder"
@@ -316,14 +313,12 @@
                         Add screenshot: dossier.png
                       </figcaption>
                     </figure>
-                    <div class="secondary-feature-copy">
-                      <h3 class="secondary-title">Mission dossier</h3>
-                      <p class="secondary-text">
-                        Build printable six-section suitability memos with
-                        metrics and field logistics.
-                      </p>
-                    </div>
-                  </div>
+                    <h3 class="feature-title">Mission dossier</h3>
+                    <p class="body-text">
+                      Build printable six-section suitability memos with
+                      metrics and field logistics.
+                    </p>
+                  </article>
                 </div>
               </div>
             </div>
@@ -378,6 +373,10 @@
               </div>
             </div>
           </section>
+        </div>
+        <div id="global-scroll-hint" class="scroll-hint is-hidden" aria-hidden="true">
+          <span class="scroll-label">scroll</span>
+          <div class="scroll-circle-icon">↓</div>
         </div>
       </main>
 

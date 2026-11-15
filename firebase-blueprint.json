@@ -1,0 +1,40 @@
+{
+  "entities": {
+    "Site": {
+      "title": "Site",
+      "description": "Planetary or Earth analog site",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string", "maxLength": 128 },
+        "body": { "type": "string", "enum": ["mars", "moon", "earth"] },
+        "latitude": { "type": "number" },
+        "longitude": { "type": "number" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "name", "body"]
+    },
+    "Dossier": {
+      "title": "Dossier",
+      "description": "Technical mission memorandum dossier",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "campaignTitle": { "type": "string", "maxLength": 200 },
+        "principalInvestigator": { "type": "string", "maxLength": 100 },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "campaignTitle"]
+    }
+  },
+  "firestore": {
+    "/sites/{siteId}": {
+      "schema": { "$ref": "#/entities/Site" },
+      "description": "Catalog of sites"
+    },
+    "/dossiers/{dossierId}": {
+      "schema": { "$ref": "#/entities/Dossier" },
+      "description": "Mission dossiers"
+    }
+  }
+}

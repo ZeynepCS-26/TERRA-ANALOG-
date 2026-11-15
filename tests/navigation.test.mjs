@@ -43,9 +43,9 @@ test("wheel navigation respects internal vertical scroll boundaries", () => {
   assert.equal(nav.getSlideDirectionForWheel(0, 25, 0, 700, 700), 1);
   assert.equal(nav.getSlideDirectionForWheel(0, -25, 0, 700, 700), -1);
   assert.equal(nav.getSlideDirectionForWheel(0, 25, 40, 900, 700), 0);
-  assert.equal(nav.getSlideDirectionForWheel(0, 25, 200, 900, 700), 1);
+  assert.equal(nav.getSlideDirectionForWheel(0, 25, 200, 900, 700), 0);
   assert.equal(nav.getSlideDirectionForWheel(0, -25, 40, 900, 700), 0);
-  assert.equal(nav.getSlideDirectionForWheel(0, -25, 0, 900, 700), -1);
+  assert.equal(nav.getSlideDirectionForWheel(0, -25, 0, 900, 700), 0);
 });
 
 test("filterEnabledSources excludes disabled data sources", () => {

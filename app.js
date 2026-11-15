@@ -1,5 +1,5 @@
 // Single constant for the live Terra-Analog application URL
-const APP_URL = "https://your-live-app.vercel.app";
+const APP_URL = "https://terra-analog-gdfrpdp6d-zeynepcs-26s-projects.vercel.app/";
 
 // Ground-truth configuration (only enabled sources & working features render)
 const FACTS = {
@@ -86,10 +86,7 @@ function getSlideDirectionForWheel(
 
   const isHorizontal = Math.abs(deltaX) > Math.abs(deltaY);
   if (!isHorizontal && scrollHeight > clientHeight + 2) {
-    const atTop = scrollTop <= 1;
-    const atBottom = scrollTop + clientHeight >= scrollHeight - 1;
-    if (primaryDelta > 0 && !atBottom) return 0;
-    if (primaryDelta < 0 && !atTop) return 0;
+    return 0;
   }
 
   return primaryDelta > 0 ? 1 : -1;
@@ -502,6 +499,57 @@ function initPresentation() {
   let lastWheelNav = 0;
   let touchStart = null;
 
+  const scrollHintEl = document.getElementById("global-scroll-hint");
+
+  function updateScrollHintVisibility() {
+    if (!scrollHintEl) return;
+    const activeSection = slideSections[currentSlide];
+    if (!activeSection) {
+      scrollHintEl.classList.add("is-hidden");
+      return;
+    }
+
+    const scrollTop = activeSection.scrollTop;
+    const scrollHeight = activeSection.scrollHeight;
+    const clientHeight = activeSection.clientHeight;
+
+    const isScrollable = scrollHeight > clientHeight + 8;
+    const isNearBottom = scrollTop + clientHeight >= scrollHeight - 24;
+    const isScrolledDown = scrollTop > 40;
+
+    if (!isScrollable || isScrolledDown || isNearBottom) {
+      scrollHintEl.classList.add("is-hidden");
+    } else {
+      scrollHintEl.classList.remove("is-hidden");
+    }
+  }
+
+  slideSections.forEach((section) => {
+    section.addEventListener("scroll", updateScrollHintVisibility, { passive: true });
+  });
+
+  if (scrollHintEl) {
+    scrollHintEl.addEventListener("click", () => {
+      const activeSection = slideSections[currentSlide];
+      if (!activeSection) return;
+      activeSection.scrollBy({
+        top: activeSection.clientHeight * 0.8,
+        behavior: "smooth"
+      });
+    });
+  }
+
+  if (typeof ResizeObserver !== "undefined") {
+    const ro = new ResizeObserver(() => {
+      updateScrollHintVisibility();
+    });
+    slideSections.forEach((section) => ro.observe(section));
+  }
+
+  document.querySelectorAll("img").forEach((img) => {
+    img.addEventListener("load", updateScrollHintVisibility);
+  });
+
   function updateDeckUI() {
     track.style.transform = `translateX(-${currentSlide * 100}%)`;
 
@@ -531,6 +579,8 @@ function initPresentation() {
     if (prevBtn) prevBtn.disabled = currentSlide === 0;
     if (nextBtn) nextBtn.disabled = currentSlide === TOTAL_SLIDES - 1;
     if (accretionBackdrop) accretionBackdrop.setActive(currentSlide === 0);
+
+    updateScrollHintVisibility();
   }
 
   function goToSlide(targetIndex) {
