@@ -1,27 +1,20 @@
 // Single constant for the live Terra-Analog application URL
-const APP_URL = "https://terra-analog-gdfrpdp6d-zeynepcs-26s-projects.vercel.app/";
+const APP_URL = "https://terra-analog-app.vercel.app/?_vercel_share=0m3Ah2nSZjAR3qLT1xPJBO7yTHV7x71R#/landing";
 
 // Ground-truth configuration (only enabled sources & working features render)
 const FACTS = {
   dataSources: [
     {
-      id: "mars-dem",
-      name: "NASA Trek MOLA DEM",
-      target: "Mars elevation",
+      id: "mars-moon-terrain",
+      name: "Mars and Moon terrain",
+      target: "modeled (live NASA Trek feed returned 404, DEM integration is the next step)",
       body: "mars",
-      enabled: true,
-    },
-    {
-      id: "moon-lola",
-      name: "LRO LOLA",
-      target: "Moon elevation",
-      body: "moon",
       enabled: true,
     },
     {
       id: "earth-dem",
       name: "AWS Terrain Tiles",
-      target: "Earth elevation",
+      target: "Earth elevation, measured",
       body: "earth",
       enabled: true,
     },
